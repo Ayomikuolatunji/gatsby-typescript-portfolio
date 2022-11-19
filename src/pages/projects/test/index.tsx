@@ -1,7 +1,8 @@
 import React from "react";
+import Layouts from "../../../components/Layouts";
 
 const Test = () => {
-  return <div>Test</div>;
+  return <Layouts>Test</Layouts>;
 };
 
 export default Test;
