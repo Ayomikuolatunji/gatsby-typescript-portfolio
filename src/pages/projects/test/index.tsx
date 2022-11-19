@@ -1,5 +1,5 @@
 import React from "react";
-import Layouts from "../../../components/Layouts";
+import { Layouts } from "@local/components";
 
 const Test = () => {
   return <Layouts>Test</Layouts>;

@@ -1,8 +1,8 @@
 import { PageProps } from "gatsby";
 import React, { PropsWithChildren } from "react";
-import "../styles/global.css";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
+import "@local/styles/global.css";
+import { Footer } from "@local/components";
+import { Navbar } from "@local/components";
 
 const Layouts: React.FC<PageProps | PropsWithChildren> = ({ children }) => {
   return (
