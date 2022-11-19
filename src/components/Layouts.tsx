@@ -1,5 +1,6 @@
 import { PageProps } from "gatsby";
 import React, { PropsWithChildren } from "react";
+import "../styles/global.css";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 
