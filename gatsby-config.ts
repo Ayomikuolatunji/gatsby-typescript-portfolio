@@ -13,11 +13,15 @@ const config: GatsbyConfig = {
       options: {
         alias: {
           "@local/styles": path.resolve(__dirname, "src/styles"),
+          "@local/pages": path.resolve(__dirname, "src/pages"),
           "@local/components": path.resolve(__dirname, "src/components"),
+          "@static": path.resolve(__dirname, "static")
         },
         extensions: [".tsx", ".ts"],
       },
+      
     },
+    
   ],
 };
 
