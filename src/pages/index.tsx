@@ -1,9 +1,10 @@
 import * as React from "react";
-import { Link, PageProps } from "gatsby";
+import { graphql, Link, PageProps } from "gatsby";
 import "@local/styles/home.css";
 import { Layouts } from "@local/components";
 
-const IndexPage: React.FC<PageProps> = () => {
+const IndexPage: React.FC<PageProps> = ({ data }) => {
+  console.log(data);
   return (
     <Layouts>
       <section className="header">
@@ -16,9 +17,25 @@ const IndexPage: React.FC<PageProps> = () => {
           </Link>
         </div>
         <img src="/banner.png" alt="banner" />
+        <p></p>
       </section>
     </Layouts>
   );
 };
+
+export const query = graphql`
+  query ProjectPage {
+    allMarkdownRemark {
+      nodes {
+        frontmatter {
+          slug
+          stack
+          title
+        }
+        id
+      }
+    }
+  }
+`;
 
 export default IndexPage;
