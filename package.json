@@ -22,6 +22,7 @@
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.15",
+    "@mui/styles": "^5.10.15",
     "@storybook/addon-console": "^1.2.3",
     "gatsby": "^5.0.0",
     "gatsby-plugin-alias-imports": "^1.0.5",
@@ -52,6 +53,7 @@
     "babel-loader": "^8.3.0",
     "gatsby-plugin-dts-css-modules": "^3.0.0",
     "gatsby-plugin-root-import": "1.0.0",
+    "storybook-addon-material-ui": "^0.9.0-alpha.24",
     "typescript": "^4.8.4"
   }
 }
