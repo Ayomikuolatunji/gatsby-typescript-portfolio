@@ -1,16 +1,14 @@
 import path from "path";
 import type { GatsbyConfig } from "gatsby";
+import { siteMetadata } from "gatsby/siteMetaData";
 
 const config: GatsbyConfig = {
-  siteMetadata: {
-    title: `My Gatsby Site`,
-    siteUrl: `https://www.yourdomain.tld`,
-    description: "Gatsby web portfolio",
-    copiright: "@2022 ayoscript",
-  },
+  siteMetadata: siteMetadata,
   graphqlTypegen: true,
   plugins: [
     "gatsby-transformer-remark",
+    "gatsby-plugin-top-layout",
+    "gatsby-plugin-mui-emotion",
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
@@ -20,15 +18,24 @@ const config: GatsbyConfig = {
           "@local/components": path.resolve(__dirname, "src/components"),
           "@static": path.resolve(__dirname, "static"),
         },
-        extensions: [".tsx", ".ts"],
+        extensions: [".tsx", ".ts", ".css", ".module.css"],
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `projects`,
-        path: `${__dirname}/src/projects/`,
+        name: "images",
+        path: "./src/images/",
       },
+      __key: "images",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: "./src/pages/",
+      },
+      __key: "pages",
     },
   ],
 };

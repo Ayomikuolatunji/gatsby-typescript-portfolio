@@ -1,3 +1,3 @@
-export { default as Layouts } from "./Layouts";
-export { default as Navbar } from "./Navbar";
-export { default as Footer } from "./Footer";
+export { default as Navbar } from "./NavBar/Navbar";
+export { default as Footer } from "./Footer/Footer";
+export { default as SEO } from "./Seo/Seo";
