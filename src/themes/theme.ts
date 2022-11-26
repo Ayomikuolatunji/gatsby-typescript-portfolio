@@ -3,12 +3,12 @@ import { createTheme } from "@mui/material/styles";
 
 // A custom theme for this app
 export const customTheme = createTheme({
-  spacing: [0, 4, 8, 16, 32, 64],
+  spacing: 8,
   palette: {
     mode: "light",
     primary: {
       main: "#556cd6",
-      darker: '#053e85',
+      darker: "#053e85",
     },
     secondary: {
       main: "#19857b",
@@ -17,8 +17,10 @@ export const customTheme = createTheme({
       main: red.A400,
     },
     custom: {
-      main: '#64748B',
-      contrastText: '#fff',
+      main: "#64748B",
+      light: "#fff",
+      darker: "#053e85",
+      contrastText: "#fff",
     },
   },
   typography: {
@@ -97,11 +99,11 @@ declare module "@mui/material/styles" {
     neutral: Palette["primary"];
   }
   interface PaletteOptions {
-    custom: PaletteOptions["primary"];
+    custom?: PaletteOptions["primary"];
   }
 
   interface PaletteColor {
-    darker?: string;
+    darker: string;
   }
   interface SimplePaletteColorOptions {
     darker?: string;

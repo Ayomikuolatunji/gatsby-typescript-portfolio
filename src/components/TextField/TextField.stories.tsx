@@ -5,18 +5,30 @@ import BasicTextFields from "./TextField";
 export default {
   title: "Components/Textfields",
   component: BasicTextFields,
+  argTypes: {
+    inputData: {
+      description: "Prop description",
+      title: {
+        control: { type: "input" },
+      },
+    },
+    handleChange: {
+      description: "textfield handlechange function",
+    },
+  },
 } as ComponentMeta<typeof BasicTextFields>;
 
 const Template: ComponentStory<typeof BasicTextFields> = (args) => (
-  <BasicTextFields />
+  <BasicTextFields {...args} />
 );
 
 export const TextField = Template.bind({});
 
-
-interface PaletteColor {
-    light?: string;
-    main: string;
-    dark?: string;
-  }
-  
+TextField.args = {
+  ...TextField.args,
+  inputData: {
+    title: "",
+    desc: "",
+  },
+  handleChange: TextField.args?.handleChange,
+};

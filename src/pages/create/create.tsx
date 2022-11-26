@@ -1,3 +1,4 @@
+import { BasicTextFields } from "@local/components";
 import {
   Typography,
   Button,
@@ -37,10 +38,25 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
+export interface inputTypes {
+  title: string;
+  desc: string;
+}
+
 export default function Create({ viewport }: types) {
   const style = useStyles();
-  const theme = useTheme();
-  console.log(theme);
+  const [inputData, setInputData] = React.useState<inputTypes>({
+    title: "",
+    desc: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.currentTarget;
+    setInputData({ ...inputData, [name]: value });
+  };
+
+  console.log(inputData)
+
   return (
     <>
       <CssBaseline />
@@ -53,6 +69,7 @@ export default function Create({ viewport }: types) {
         >
           Create a new note
         </Typography>
+        <BasicTextFields inputData={inputData} handleChange={handleChange} />
         <Button
           type="button"
           variant="contained"
