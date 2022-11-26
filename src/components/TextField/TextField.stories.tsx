@@ -7,10 +7,7 @@ export default {
   component: BasicTextFields,
   argTypes: {
     inputData: {
-      description: "Prop description",
-      title: {
-        control: { type: "input" },
-      },
+      description: "Prop description"
     },
     handleChange: {
       description: "textfield handlechange function",
