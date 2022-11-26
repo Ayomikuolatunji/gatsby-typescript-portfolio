@@ -27,7 +27,7 @@ export const customTheme = createTheme({
     danger: orange[500],
   },
   appColor: {
-    success: "#ff0ff",
+    success: "#000",
   },
   palette: {
     mode: "light",

@@ -10,7 +10,7 @@ interface types {
 
 export default function Create({ viewport }: types) {
   const theme = useTheme();
-  console.log(theme.status.danger);
+  console.log(theme);
   return (
     <>
       <CssBaseline />
@@ -29,6 +29,7 @@ export default function Create({ viewport }: types) {
           onClick={() => {
             console.log("You clicked me");
           }}
+          sx={{ color: (theme) => theme.appColor.success }}
         >
           Submit
         </Button>
