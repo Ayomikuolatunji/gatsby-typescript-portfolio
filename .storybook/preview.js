@@ -1,31 +1,45 @@
+import "@storybook/addon-console";
+import { action } from "@storybook/addon-actions";
+import { CssBaseline } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
+import { setConsoleOptions } from "@storybook/addon-console";
+import "@storybook/addon-actions/register";
+import { addDecorator } from "@storybook/react";
+import { withConsole } from "@storybook/addon-console";
+import { customTheme } from "../src/themes/theme";
 
-// Copy.storybook/preview.js: copy code to clipboard
-import { action } from "@storybook/addon-actions"
+addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 
-// Gatsby's Link overrides:
-// Gatsby Link calls the `enqueue` & `hovering` methods on the global variable ___loader.
-// This global object isn't set in storybook context, requiring you to override it to empty functions (no-op),
-// so Gatsby Link doesn't throw errors.
+setConsoleOptions({
+  panelExclude: [],
+});
+
 global.___loader = {
   enqueue: () => {},
   hovering: () => {},
-}
-// This global variable prevents the "__BASE_PATH__ is not defined" error inside Storybook.
-global.__BASE_PATH__ = "/"
+};
+global.__BASE_PATH__ = "/";
 
-// Navigating through a gatsby app using gatsby-link or any other gatsby component will use the `___navigate` method.
-// In Storybook, it makes more sense to log an action than doing an actual navigate. Check out the actions addon docs for more info: https://storybook.js.org/docs/react/essentials/actions
-
-window.___navigate = pathname => {
-  action("NavigateTo:")(pathname)
-}
+window.___navigate = (pathname) => {
+  action("NavigateTo:")(pathname);
+};
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
+    expanded: true, // Adds the description and default columns
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
     },
   },
-}
+};
+
+export const withMuiTheme = (Story) => (
+  <ThemeProvider theme={customTheme}>
+    <CssBaseline />
+    <Story />
+  </ThemeProvider>
+);
+
+export const decorators = [withMuiTheme];
