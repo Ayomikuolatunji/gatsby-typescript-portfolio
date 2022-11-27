@@ -21,19 +21,19 @@ export default {
 
 const Template: ComponentStory<typeof Create> = (args) => <Create {...args} />;
 
-export const CreateNewNoteDesktop = Template.bind({});
+export const Desktop = Template.bind({});
 
-export const CreateNewNoteMobile = Template.bind({});
+export const Mobile = Template.bind({});
 
-export const CreateNewNoteTablet = Template.bind({});
+export const Tablet = Template.bind({});
 
-CreateNewNoteMobile.parameters = {
+Mobile.parameters = {
   viewport: {
     defaultViewport: "iphone5",
   },
 };
 
-CreateNewNoteTablet.parameters = {
+Tablet.parameters = {
   viewport: {
     defaultViewport: "ipad",
   },

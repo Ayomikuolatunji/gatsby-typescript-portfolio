@@ -4,43 +4,14 @@ import { createTheme } from "@mui/material/styles";
 // A custom theme for this app
 export const customTheme = createTheme({
   spacing: 8,
-  palette: {
-    mode: "light",
-    primary: {
-      main: "#556cd6",
-      darker: "#053e85",
-    },
-    secondary: {
-      main: "#19857b",
-    },
-    error: {
-      main: red.A400,
-    },
-    custom: {
-      main: "#64748B",
-      light: "#fff",
-      darker: "#053e85",
-      contrastText: "#fff",
-    },
-  },
-  typography: {
-    subtitle1: {
-      fontSize: 14,
-    },
-    // Disable h3 variant
-    h3: {
-      fontSize: "100px",
-    },
-    poster: {
-      fontSize: "10px",
-    },
-  },
   status: {
     danger: "yellow",
     check: "purple",
+    main: "white",
   },
   appColor: {
-    success: "red",
+    success: "blue",
+    light: "white",
   },
 });
 
@@ -49,9 +20,11 @@ declare module "@mui/material/styles" {
     status: {
       danger: string;
       check: string;
+      main: string;
     };
     appColor: {
       success: string;
+      light: string;
     };
   }
   // allow configuration using `createTheme`
@@ -59,9 +32,11 @@ declare module "@mui/material/styles" {
     status: {
       danger: string;
       check: string;
+      main: string;
     };
     appColor: {
       success: string;
+      light: string;
     };
   }
 }
@@ -85,7 +60,6 @@ declare module "@mui/material/styles" {
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     poster: true;
-    h3: false;
   }
 }
 
