@@ -1,4 +1,4 @@
-import { ResponsiveDrawer, BasicTextFields } from "@local/components";
+import { ResponsiveDrawer, BasicTextFields } from "../../components";
 import {
   Typography,
   Button,
@@ -8,8 +8,6 @@ import {
   Box,
   FormControlLabel,
   Radio,
-  Grid,
-  Paper,
   Card,
   Avatar,
   IconButton,
@@ -18,6 +16,7 @@ import {
 import { makeStyles } from "@mui/styles";
 import React, { useEffect, useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Masonry from "@mui/lab/Masonry";
 
 type viewport = "lg" | "md" | "sm";
 
@@ -28,11 +27,6 @@ interface types {
 const useStyles = makeStyles((theme: Theme) => ({
   btn: {
     padding: theme.spacing(1),
-    lineHeight:(note:any)=>{
-      if(note.textSize ==="16px"){
-        return note.textSize
-      }
-    },
     [theme.breakpoints.up("sm")]: {
       backgroundColor: theme.palette.secondary.main,
       color: theme.status.check,
@@ -50,6 +44,13 @@ const useStyles = makeStyles((theme: Theme) => ({
       color: theme.appColor.light,
     },
   },
+  heading1: {
+    fontSize: (note: { textSize: string }) => {
+      if (note.textSize) {
+        return note.textSize;
+      }
+    },
+  },
 }));
 
 export interface inputTypes {
@@ -59,7 +60,7 @@ export interface inputTypes {
 }
 
 export default function Create({ viewport }: types) {
-  const style = useStyles({textSize:"16px"});
+  const style = useStyles({ textSize: "100px" });
   const [data, setData] = useState([]);
   const [inputData, setInputData] = React.useState<inputTypes>({
     title: "",
@@ -132,34 +133,38 @@ export default function Create({ viewport }: types) {
         >
           Submit
         </Button>
-        <Box sx={{ mt: 9 }}>
-          <Grid container spacing={3}>
+        <Box sx={{ mt: 9, maxWidth: "100%" }}>
+          <Masonry
+            columns={{ xs: 1, sm: 2, md: 3 }}
+            spacing={{ xs: 2, sm: 3, md: 4 }}
+          >
             {data?.map((item: { body: string; id: number; title: string }) => {
               return (
-                <Grid item key={item.id} xs={12} sm={6} md={6} lg={3}>
-                  <Card>
-                    <CardHeader
-                      avatar={
-                        <Avatar
-                          sx={{ bgcolor: (theme) => theme.appColor.success }}
-                          aria-label="recipe"
-                        >
-                          R
-                        </Avatar>
-                      }
-                      action={
-                        <IconButton aria-label="settings">
-                          <DeleteIcon />
-                        </IconButton>
-                      }
-                      title={item.title}
-                    />
-                  </Card>
-                </Grid>
+                <Card>
+                  <CardHeader
+                    avatar={
+                      <Avatar
+                        sx={{ bgcolor: (theme) => theme.appColor.success }}
+                        aria-label="recipe"
+                      >
+                        R
+                      </Avatar>
+                    }
+                    action={
+                      <IconButton aria-label="settings">
+                        <DeleteIcon />
+                      </IconButton>
+                    }
+                    title={item.title}
+                  />
+                </Card>
               );
             })}
-          </Grid>
+          </Masonry>
         </Box>
+        <Typography className={style.heading1}>
+          texting
+        </Typography>
       </Container>
     </ResponsiveDrawer>
   );

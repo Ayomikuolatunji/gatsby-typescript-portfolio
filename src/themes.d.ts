@@ -1,19 +1,12 @@
-import { red, orange } from "@mui/material/colors";
-import { createTheme } from "@mui/material/styles";
+import {
+  createTheme,
+  PaletteColor,
+  PaletteColorOptions,
+} from "@mui/material/styles";
 
-// A custom theme for this app
-export const customTheme = createTheme({
-  spacing: 8,
-  status: {
-    danger: "yellow",
-    check: "purple",
-    main: "white",
-  },
-  appColor: {
-    success: "blue",
-    light: "white",
-  },
-});
+/*=============================================
+=            New theme customization            =
+=============================================*/
 
 declare module "@mui/material/styles" {
   interface Theme {
@@ -41,9 +34,11 @@ declare module "@mui/material/styles" {
   }
 }
 
+/*=====  End of New theme customization  ======*/
+
 /*=============================================
-=            Typography            =
-=============================================*/
+  =            Typography            =
+  =============================================*/
 
 declare module "@mui/material/styles" {
   interface TypographyVariants {
@@ -66,22 +61,25 @@ declare module "@mui/material/Typography" {
 /*=====  End of Typography  ======*/
 
 /*=============================================
-=        Palette             =
-=============================================*/
+  =        Palette             =
+  =============================================*/
 declare module "@mui/material/styles" {
+  // append to color palette
   interface Palette {
-    neutral: Palette["primary"];
+    customGreen?: PaletteColor;
+    customBlack?: PaletteColor;
   }
   interface PaletteOptions {
-    custom?: PaletteOptions["primary"];
+    customBlack?: PaletteColorOptions;
+    customGreen?: PaletteColorOptions;
   }
-
-  interface PaletteColor {
-    darker: string;
-  }
+  // append to color option
   interface SimplePaletteColorOptions {
-    darker?: string;
+    lightier?: string;
+  }
+  interface PaletteColor {
+    lightier?: string;
   }
 }
 
-/*=====  End of  Palette  ======*/
+/*=====  End of Palette  ======*/

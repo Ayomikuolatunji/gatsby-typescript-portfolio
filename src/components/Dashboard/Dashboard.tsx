@@ -70,7 +70,7 @@ export default function ResponsiveDrawer(props: Props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: { sm: "flex", xs: "block" } }}>
       <CssBaseline />
       <Box
         component="nav"
@@ -110,9 +110,11 @@ export default function ResponsiveDrawer(props: Props) {
         </Drawer>
       </Box>
       <Box
-        component="main"
         sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: {
+            sm: `calc(100% - ${drawerWidth}px)`,
+            xs: "100%",
+          },
         }}
       >
         <AppBar
@@ -136,7 +138,11 @@ export default function ResponsiveDrawer(props: Props) {
             </Typography>
           </Toolbar>
         </AppBar>
-        <Box sx={{ mt: (theme) => theme.spacing(4 * 2) }}>
+        <Box
+          sx={{
+            mt: (theme) => theme.spacing(4 * 2),
+          }}
+        >
           <Layout>{props.children}</Layout>
         </Box>
       </Box>

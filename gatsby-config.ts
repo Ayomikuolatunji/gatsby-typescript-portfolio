@@ -1,14 +1,23 @@
 import path from "path";
 import type { GatsbyConfig } from "gatsby";
-import { siteMetadata } from "gatsby/siteMetaData";
 
 const config: GatsbyConfig = {
-  siteMetadata: siteMetadata,
+  siteMetadata: {
+    title: `Gatsby Typescript blog Starter`,
+    description: `A simple blog starter using Typescript in front & back side with eslint & prettier.`,
+    author: {
+      name: "Julien CARON",
+      content: "I like build some things using Javascript",
+    },
+    social: {
+      github: "https://github.com/Junscuzzy",
+    },
+  },
   graphqlTypegen: true,
   plugins: [
     "gatsby-transformer-remark",
-    "gatsby-plugin-top-layout",
     "gatsby-plugin-mui-emotion",
+    "gatsby-plugin-top-layouts",
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
