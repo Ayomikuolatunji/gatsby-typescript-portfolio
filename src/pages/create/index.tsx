@@ -28,6 +28,11 @@ interface types {
 const useStyles = makeStyles((theme: Theme) => ({
   btn: {
     padding: theme.spacing(1),
+    lineHeight:(note:any)=>{
+      if(note.textSize ==="16px"){
+        return note.textSize
+      }
+    },
     [theme.breakpoints.up("sm")]: {
       backgroundColor: theme.palette.secondary.main,
       color: theme.status.check,
@@ -54,7 +59,7 @@ export interface inputTypes {
 }
 
 export default function Create({ viewport }: types) {
-  const style = useStyles();
+  const style = useStyles({textSize:"16px"});
   const [data, setData] = useState([]);
   const [inputData, setInputData] = React.useState<inputTypes>({
     title: "",

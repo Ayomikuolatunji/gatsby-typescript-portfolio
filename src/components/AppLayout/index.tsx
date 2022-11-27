@@ -1,5 +1,5 @@
 import React, { FC, PropsWithChildren } from "react";
-import { ThemeProvider, Theme } from "@mui/material";
+import { ThemeProvider, Theme, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { customTheme } from "../../themes/theme";
 
@@ -19,9 +19,9 @@ const LayoutComponent: FC<PropsWithChildren> = ({ children }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <main className={classes.main}>{children}</main>
-    </div>
+    <Box className={classes.root}>
+      <Box className={classes.main}>{children}</Box>
+    </Box>
   );
 };
 

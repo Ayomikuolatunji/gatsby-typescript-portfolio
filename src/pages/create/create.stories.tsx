@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import React from "react";
-import Create from "./create";
+import Create from ".";
 
 export default {
   title: "Pages/Create",

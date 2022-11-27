@@ -17,7 +17,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Layout from "../AppLayout";
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 interface Props {
   window?: () => Window;
@@ -83,7 +83,7 @@ export default function ResponsiveDrawer(props: Props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: "block", sm: "none" },
@@ -112,14 +112,13 @@ export default function ResponsiveDrawer(props: Props) {
       <Box
         component="main"
         sx={{
-          width: "100%",
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
         <AppBar
           position="fixed"
           sx={{
             width: { sm: `calc(100% - ${drawerWidth}px)` },
-            ml: { sm: `${drawerWidth}px` },
           }}
         >
           <Toolbar>
@@ -137,8 +136,9 @@ export default function ResponsiveDrawer(props: Props) {
             </Typography>
           </Toolbar>
         </AppBar>
-        <Toolbar />
-        <Layout>{props.children}</Layout>
+        <Box sx={{ mt: (theme) => theme.spacing(4 * 2) }}>
+          <Layout>{props.children}</Layout>
+        </Box>
       </Box>
     </Box>
   );

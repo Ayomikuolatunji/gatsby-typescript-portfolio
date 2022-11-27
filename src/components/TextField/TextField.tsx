@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { makeStyles } from "@mui/styles";
 import { RadioGroup, Theme } from "@mui/material";
-import { inputTypes } from "../../pages/create/create";
+import { inputTypes } from "../../pages/create";
 
 const useStyles = makeStyles((theme: Theme) => ({
   inputStyles: {
